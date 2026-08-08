@@ -1,5 +1,20 @@
 const Task = require('../models/Task');
 
+const normalizeTaskPayload = (body) => {
+  const payload = {};
+
+  if (body.title !== undefined) payload.title = body.title;
+  if (body.description !== undefined) payload.description = body.description;
+  if (body.status !== undefined) payload.status = body.status;
+  if (body.priority !== undefined) payload.priority = body.priority;
+  if (body.dueDate !== undefined) payload.dueDate = body.dueDate || undefined;
+  if (body.completed !== undefined) {
+    payload.status = body.completed ? 'completed' : 'pending';
+  }
+
+  return payload;
+};
+
 // @desc    Get all tasks
 // @route   GET /api/tasks
 const getTasks = async (req, res, next) => {
@@ -42,7 +57,7 @@ const getTaskById = async (req, res, next) => {
 // @route   POST /api/tasks
 const createTask = async (req, res, next) => {
   try {
-    const task = await Task.create(req.body);
+    const task = await Task.create(normalizeTaskPayload(req.body));
     res.status(201).json({ success: true, data: task });
   } catch (error) {
     next(error);
@@ -53,7 +68,7 @@ const createTask = async (req, res, next) => {
 // @route   PUT /api/tasks/:id
 const updateTask = async (req, res, next) => {
   try {
-    const task = await Task.findByIdAndUpdate(req.params.id, req.body, {
+    const task = await Task.findByIdAndUpdate(req.params.id, normalizeTaskPayload(req.body), {
       new: true,
       runValidators: true
     });
@@ -78,7 +93,7 @@ const deleteTask = async (req, res, next) => {
       return res.status(404).json({ success: false, error: 'Task not found' });
     }
 
-    res.status(200).json({ success: true, message: 'Task removed successfully' });
+    res.status(204).end();
   } catch (error) {
     next(error);
   }
