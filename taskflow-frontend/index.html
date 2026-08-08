@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TaskFlow MVP | Task Manager</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <div class="app-container">
+    <header class="app-header">
+      <h1>TaskFlow MVP</h1>
+      <p>Organize your tasks efficiently</p>
+    </header>
+
+    <main>
+      <form id="task-form" class="task-form">
+        <input type="text" id="task-input" placeholder="Add a new task..." autocomplete="off" required>
+        <button type="submit" class="btn-add">Add Task</button>
+      </form>
+
+      <div class="filter-bar">
+        <div class="filters">
+          <button class="filter-btn active" data-filter="all">All</button>
+          <button class="filter-btn" data-filter="active">Active</button>
+          <button class="filter-btn" data-filter="completed">Completed</button>
+        </div>
+        <button id="clear-completed" class="btn-clear">Clear Completed</button>
+      </div>
+
+      <ul id="task-list" class="task-list"></ul>
+
+      <div class="task-stats">
+        <span id="items-left">0 items left</span>
+      </div>
+    </main>
+  </div>
+
+  <script src="js/storage.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
