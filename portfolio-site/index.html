@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Developer Portfolio | Home</title>
+  <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <a href="index.html" class="logo">SoftNexis<span>.dev</span></a>
+      <button class="hamburger" id="hamburger-btn" aria-label="Toggle Navigation">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-content">
+        <h1>Full-Stack Software Developer</h1>
+        <p>Building high-performance web applications, robust REST APIs, and scalable software solutions.</p>
+        <div class="hero-buttons">
+          <a href="#projects" class="btn btn-primary">View Work</a>
+          <a href="contact.html" class="btn btn-secondary">Get In Touch</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="projects-section">
+      <div class="container">
+        <h2>Featured Projects</h2>
+        <div class="projects-grid">
+          <article class="project-card">
+            <div class="project-info">
+              <h3>TaskFlow SaaS</h3>
+              <p>Full-stack task management application built with Node.js, Express, and MongoDB.</p>
+              <div class="tags">
+                <span class="tag">Node.js</span>
+                <span class="tag">Express</span>
+                <span class="tag">MongoDB</span>
+              </div>
+            </div>
+          </article>
+          <article class="project-card">
+            <div class="project-info">
+              <h3>Developer Portfolio</h3>
+              <p>Responsive, semantic multi-page portfolio site deployed on GitHub Pages.</p>
+              <div class="tags">
+                <span class="tag">HTML5</span>
+                <span class="tag">CSS Grid</span>
+                <span class="tag">JavaScript</span>
+              </div>
+            </div>
+          </article>
+          <article class="project-card">
+            <div class="project-info">
+              <h3>API Gateway Engine</h3>
+              <p>Microservice gateway handling request routing, validation, and JWT authentication.</p>
+              <div class="tags">
+                <span class="tag">REST API</span>
+                <span class="tag">JWT</span>
+                <span class="tag">Middleware</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 SoftNexis Intern Portfolio. All rights reserved.</p>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
